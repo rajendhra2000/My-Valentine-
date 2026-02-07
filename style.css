@@ -1,0 +1,45 @@
+body {
+    background-color: #fff0f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(255, 100, 150, 0.1);
+    text-align: center;
+    max-width: 350px;
+}
+
+.emoji { font-size: 50px; margin-bottom: 20px; }
+
+.title {
+    color: #e63946;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.message { color: #555; line-height: 1.5; }
+
+#yesBtn {
+    background: linear-gradient(45deg, #ff4d4d, #ff0066);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: transform 0.2s;
+}
+
+#yesBtn:hover { transform: scale(1.05); }
+
