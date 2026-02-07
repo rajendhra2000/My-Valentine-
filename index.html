@@ -5,119 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Kanna 💖</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            background-image: radial-gradient(#ffcfdf 0.5px, #fff5f5 0.5px);
+            background-size: 20px 20px;
             overflow: hidden;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 2rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-        }
         .cursive { font-family: 'Dancing Script', cursive; }
-        .heart {
-            position: absolute;
-            color: rgba(255, 105, 180, 0.3);
-            animation: float 6s infinite linear;
-            z-index: -1;
+        .main-card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(255, 182, 193, 0.4);
+            border: 2px solid #ffdae0;
         }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        .btn-yes {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+        }
+        #noBtn {
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .floating-heart {
+            position: absolute;
+            animation: float Up 4s ease-in infinite;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <script>
-        for (let i = 0; i < 15; i++) {
-            let heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            heart.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(heart);
-        }
-    </script>
-
-    <div class="glass-card p-10 text-center max-w-sm w-full mx-4 relative z-10">
+    <div class="main-card p-8 md:p-12 text-center max-w-md w-full mx-4 relative z-10">
         <div id="question-section">
-            <div class="mb-6 relative inline-block">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJteGZ6bm9pZ3pueGZ6bm9pZ3pueGZ6bm9pZ3pueGZ6bm9pZ3pueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KmxmoHUGPDjfQXqGgv/giphy.gif" 
-                     alt="Cute cats" class="w-40 h-40 object-cover rounded-full border-4 border-pink-300 shadow-lg">
-                <span class="absolute -bottom-2 -right-2 text-4xl">✨</span>
-            </div>
+            <div class="text-6xl mb-6">😘</div>
+            <h1 class="cursive text-5xl text-rose-600 mb-4">Dearest Kanna,</h1>
+            <p class="text-gray-600 text-lg mb-10 font-light">You make my heart skip a beat. Will you be my Valentine?</p>
             
-            <h1 class="cursive text-4xl text-pink-600 mb-2">Hey Kanna,</h1>
-            <p class="text-xl font-semibold text-gray-700 mb-8">Will you be my valentine?</p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button id="yesBtn" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white font-bold py-3 px-10 rounded-full shadow-lg transition-all transform hover:scale-110 active:scale-95 z-20">
-                    Yes!
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 relative" id="buttonContainer">
+                <button id="yesBtn" class="btn-yes text-white font-bold py-4 px-12 rounded-full text-xl transition-all transform hover:scale-110 active:scale-95">
+                    Yes, I will! 💋
                 </button>
-                <button id="noBtn" class="bg-white text-pink-500 border-2 border-pink-200 font-bold py-3 px-10 rounded-full transition-all duration-200 z-20">
-                    No
-                </button>
-            </div>
-            
-            <p id="hintText" class="mt-8 text-xs text-pink-400 italic opacity-0 transition-opacity">"No" is just a "Yes" in hiding... 😉</p>
-            <div class="mt-4 pt-4 border-t border-pink-100">
-                <p class="text-sm text-gray-500">Created with ❤️ by <span class="font-bold text-pink-500">Prasad</span></p>
-            </div>
-        </div>
-
-        <div id="happy-section" class="hidden">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnh6bjR4am9pZ3pueGZ6bm9pZ3pueGZ6bm9pZ3pueGZ6bm9pZ3pueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" 
-                 alt="Happy cat" class="w-40 h-40 mx-auto mb-6 rounded-full border-4 border-green-300 shadow-lg">
-            <h2 class="cursive text-5xl text-pink-600 mb-4">Yay! 💖</h2>
-            <p class="text-gray-700 text-lg">Pedhodu is the happiest person right now!</p>
-            <p class="mt-4 text-pink-400 text-sm italic">See you soon, Valentine!</p>
-        </div>
-    </div>
-
-    <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const questionSection = document.getElementById('question-section');
-        const happySection = document.getElementById('happy-section');
-        const hintText = document.getElementById('hintText');
-
-        const moveNoButton = () => {
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = `${Math.max(10, Math.min(x, window.innerWidth - 120))}px`;
-            noBtn.style.top = `${Math.max(10, Math.min(y, window.innerHeight - 60))}px`;
-            
-            // Make hint visible
-            hintText.style.opacity = '1';
-            
-            // Make Yes button slightly bigger
-            const currentScale = yesBtn.style.transform ? parseFloat(yesBtn.style.transform.replace('scale(', '')) : 1;
-            yesBtn.style.transform = `scale(${currentScale + 0.1})`;
-        };
-
-        // Move on hover (desktop) or click (mobile)
-        noBtn.addEventListener('mouseover', moveNoButton);
-        noBtn.addEventListener('click', moveNoButton);
-
-        yesBtn.addEventListener('click', () => {
-            questionSection.classList.add('hidden');
-            happySection.classList.remove('hidden');
-            // Confetti effect (optional but nice)
-            document.body.style.background = 'linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)';
-        });
-    </script>
-</body>
-</html>
+                <button
